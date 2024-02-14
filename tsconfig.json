@@ -1,0 +1,19 @@
+{
+    "compilerOptions": {
+        "lib": ["DOM", "es2020"],
+        "module": "ESNext",
+        "moduleResolution": "Bundler",
+        "target": "ESNext",
+        "allowSyntheticDefaultImports": true,
+        "strict": true,
+        "declaration": true,
+        "strictNullChecks": true,
+        "noImplicitReturns": true,
+        "noImplicitThis": true,
+        "noImplicitAny": true,
+        "esModuleInterop": true,
+        "verbatimModuleSyntax": true,
+        "forceConsistentCasingInFileNames": true,
+    },
+    "include": ["src/**/*"]
+}
