@@ -1,8 +1,8 @@
-import { SVG_NS, get_attr, create_svg_el, create_canvas, dpr } from './dom';
+import { SVG_NS, get_attr, create_svg_el, dpr, create_canvas } from './dom';
 import type { KjuaOptions } from './options';
 import type { QRCode } from './qrcode';
 
-const create_draw_ctx = (ctx: CanvasRenderingContext2D) => {
+const create_draw_ctx = (ctx: { p: string; o: number }) => {
 	const rnd = (x: number) => Math.round(x * 10) / 10;
 	const rndo = (x: number) => Math.round(x * 10) / 10 + ctx.o;
 	return {
@@ -21,17 +21,19 @@ const create_draw_ctx = (ctx: CanvasRenderingContext2D) => {
 	};
 };
 
+type DrawCtx = ReturnType<typeof create_draw_ctx>;
+
 const draw_dark = (
-	ctx,
+	ctx: DrawCtx,
 	l: number,
 	t: number,
 	r: number,
 	b: number,
 	rad: number,
-	nw: number,
-	ne: number,
-	se: number,
-	sw: number,
+	nw: boolean,
+	ne: boolean,
+	se: boolean,
+	sw: boolean,
 ) => {
 	if (nw) {
 		ctx.m(l + rad, t);
@@ -65,16 +67,16 @@ const draw_dark = (
 };
 
 const draw_light = (
-	ctx,
+	ctx: DrawCtx,
 	l: number,
 	t: number,
 	r: number,
 	b: number,
 	rad: number,
-	nw: number,
-	ne: number,
-	se: number,
-	sw: number,
+	nw: boolean,
+	ne: boolean,
+	se: boolean,
+	sw: boolean,
 ) => {
 	if (nw) {
 		ctx.m(l + rad, t)
@@ -107,7 +109,7 @@ const draw_light = (
 
 const draw_mod = (
 	qr: QRCode,
-	ctx: CanvasRenderingContext2D,
+	ctx: DrawCtx,
 	options: KjuaOptions,
 	width: number,
 	row: number,
@@ -192,7 +194,7 @@ const add_label = (el: SVGElement, options: KjuaOptions) => {
 		'bold ' + options.mSize * 0.01 * size + 'px ' + options.fontname;
 
 	const ratio = options.ratio || dpr;
-	const ctx = dom.create_canvas(size, ratio).getContext('2d');
+	const ctx = create_canvas(size, ratio).getContext('2d')!;
 	ctx.strokeStyle = options.back;
 	ctx.lineWidth = options.mSize * 0.01 * size * 0.1;
 	ctx.fillStyle = options.fontcolor;

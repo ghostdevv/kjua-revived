@@ -11,7 +11,7 @@ export const kjua = (inputOptions: Partial<KjuaOptions>) => {
 		options.ecLevel,
 		options.minVersion,
 		options.quiet,
-	);
+	)!;
 
 	if (options.render === 'svg') {
 		return create_svg_qrcode(qr, options);
