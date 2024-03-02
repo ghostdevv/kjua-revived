@@ -15,9 +15,6 @@ importers:
       publint:
         specifier: ^0.2.7
         version: 0.2.7
-      scar:
-        specifier: ^2.3.0
-        version: 2.3.0
       tsup:
         specifier: ^8.0.2
         version: 8.0.2(typescript@5.3.3)
@@ -1366,10 +1363,6 @@ packages:
     engines: {node: '>=6'}
     dependencies:
       mri: 1.2.0
-    dev: true
-
-  /scar@2.3.0:
-    resolution: {integrity: sha512-QNiSVABevJhQpYvHXBh2TWG4kZgooEPuu1h2YMlSqmgjIStEKW9W4iwXEw4A+WPmPiSQstLyyZ5oyJk+eYu4YA==}
     dev: true
 
   /set-function-length@1.2.1:
