@@ -4,6 +4,9 @@
   "description": "Dynamically generated QR codes for modern browsers.",
   "homepage": "https://larsjung.de/kjua/",
   "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
+  "contributors": [
+    "Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)"
+  ],
   "license": "MIT",
   "repository": {
     "type": "git",
