@@ -1,9 +1,11 @@
+import { defaultOptions, type KjuaOptions } from './lib/options';
 import create_canvas_qrcode from './lib/create_canvas_qrcode';
 import create_svg_qrcode from './lib/create_svg_qrcode';
-import { defaultOptions, type KjuaOptions } from './lib/options';
 import qrcode from './lib/qrcode';
 
-export const kjua = (inputOptions: Partial<KjuaOptions>) => {
+export const kjua = (
+	inputOptions: Partial<KjuaOptions>,
+): SVGElement | HTMLCanvasElement | HTMLImageElement => {
 	const options: KjuaOptions = { ...defaultOptions, ...inputOptions };
 
 	const qr = qrcode(

@@ -1,0 +1,16 @@
+{
+    "name": "@ghost/kjua-revived",
+    "version": "0.1.0",
+    "exports": {
+        "./package.json": "./package.json",
+        ".": "./src/kjua.ts"
+    },
+    "include": [
+        "src/**",
+        "README.md",
+        "LICENSE"
+    ],
+    "exclude": [
+        "**"
+    ]
+}
