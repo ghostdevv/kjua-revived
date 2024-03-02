@@ -2,7 +2,7 @@ import type { ErrorCorrectionLevel } from './options';
 import * as qr_gen from 'qrcode-generator';
 
 // @ts-expect-error need to check if this is equired
-qr_gen.stringToBytes = qr_gen.stringToBytesFuncs['UTF-8'];
+// qr_gen.stringToBytes = qr_gen.stringToBytesFuncs['UTF-8'];
 
 const RE_CODE_LENGTH_OVERFLOW = /code length overflow/i;
 

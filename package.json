@@ -9,18 +9,35 @@
     "type": "git",
     "url": "https://github.com/lrsjng/kjua.git"
   },
-  "main": "dist/kjua.min.js",
+  "files": [
+    "README.md",
+    "LICENSE",
+    "dist"
+  ],
+  "type": "module",
+  "exports": {
+    "./package.json": "./package.json",
+    ".": {
+      "import": {
+        "types": "./dist/kjua.d.ts",
+        "default": "./dist/kjua.js"
+      },
+      "require": {
+        "types": "./dist/kjua.d.cts",
+        "default": "./dist/kjua.cjs"
+      }
+    }
+  },
   "scripts": {
-    "lint": "eslint .",
-    "build": "node ghu release",
-    "precommit": "npm run -s lint && npm run -s build"
+    "lint": "tsc --noEmit",
+    "build": "tsup && publint"
+  },
+  "dependencies": {
+    "qrcode-generator": "1.4.4"
   },
   "devDependencies": {
-    "@babel/core": "7.10.5",
-    "@babel/preset-env": "7.10.4",
-    "eslint": "7.5.0",
-    "ghu": "0.26.0",
-    "qrcode-generator": "1.4.4",
-    "scar": "2.3.0"
+    "publint": "^0.2.7",
+    "tsup": "^8.0.2",
+    "typescript": "^5.3.3"
   }
 }
