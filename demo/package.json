@@ -1,0 +1,17 @@
+{
+  "name": "@kjua-revived/demo",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "kjua-revived": "workspace:^",
+    "typescript": "^5.2.2",
+    "vite": "^5.1.4",
+    "vite-plugin-pug": "^0.3.2"
+  }
+}

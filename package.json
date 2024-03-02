@@ -33,13 +33,16 @@
   },
   "scripts": {
     "lint": "tsc --noEmit",
-    "build": "tsup && publint"
+    "build": "tsup && publint",
+    "build:demo": "pnpm --filter demo -r build",
+    "dev": "pnpm --filter demo -r dev"
   },
   "dependencies": {
     "qrcode-generator": "1.4.4"
   },
   "devDependencies": {
     "publint": "^0.2.7",
+    "scar": "^2.3.0",
     "tsup": "^8.0.2",
     "typescript": "^5.3.3"
   }
