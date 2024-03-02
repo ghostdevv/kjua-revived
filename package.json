@@ -1,8 +1,8 @@
 {
-  "name": "kjua",
-  "version": "0.9.0",
-  "description": "Dynamically generated QR codes for modern browsers.",
-  "homepage": "https://larsjung.de/kjua/",
+  "name": "kjua-revived",
+  "version": "0.1.0",
+  "description": "Kjua Revived is an updated version of the popular kjua QR Code library.",
+  "homepage": "https://github.com/ghostdevv/kjua-revived",
   "author": "Lars Jung <lrsjng@gmail.com> (https://larsjung.de)",
   "contributors": [
     "Willow (GHOST) <ghostdevbusiness@gmail.com> (https://ghostdev.xyz)"
@@ -10,7 +10,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/lrsjng/kjua.git"
+    "url": "https://github.com/ghostdevv/kjua-revived.git"
   },
   "files": [
     "README.md",
