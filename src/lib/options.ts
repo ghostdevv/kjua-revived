@@ -1,6 +1,11 @@
+// todo doc comments
+
+export type KjuaInputOptions = Omit<Partial<KjuaOptions>, 'image'> & {
+	image?: string | HTMLImageElement;
+};
+
 export type ErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H';
 
-// todo doc comments
 export interface KjuaOptions {
 	// render method: 'canvas', 'image' or 'svg'
 	render: 'canvas' | 'image' | 'svg';
@@ -18,16 +23,13 @@ export interface KjuaOptions {
 	size: number;
 
 	// pixel-ratio, null for devicePixelRatio
-	ratio: number | null;
+	ratio?: number;
 
 	// code color
 	fill: string;
 
 	// background color
 	back: string;
-
-	// content
-	text: string;
 
 	// roundend corners in pc: 0..100
 	rounded: number;
@@ -44,12 +46,12 @@ export interface KjuaOptions {
 	mPosY: number;
 
 	// label
-	label: string;
+	label?: string;
 	fontname: string;
 	fontcolor: string;
 
 	// image element
-	image: HTMLImageElement | null;
+	image?: HTMLImageElement;
 }
 
 export const defaultOptions: KjuaOptions = {
@@ -68,18 +70,11 @@ export const defaultOptions: KjuaOptions = {
 	// size in pixel
 	size: 200,
 
-	// pixel-ratio, null for devicePixelRatio
-	ratio: null,
-
 	// code color
 	fill: '#333',
 
 	// background color
 	back: '#fff',
-
-	// content
-	// todo don't default this
-	text: 'https://github.com/ghostdevv/kjua',
 
 	// roundend corners in pc: 0..100
 	rounded: 0,
@@ -96,10 +91,6 @@ export const defaultOptions: KjuaOptions = {
 	mPosY: 50,
 
 	// label
-	label: 'no label',
 	fontname: 'sans',
 	fontcolor: '#333',
-
-	// image element
-	image: null,
 };
