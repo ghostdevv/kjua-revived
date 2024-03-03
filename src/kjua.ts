@@ -10,6 +10,21 @@ import { create_el } from './lib/dom';
 
 export function kjua(
 	text: string,
+	inputOptions: KjuaInputOptions & { render: 'svg' },
+): SVGElement;
+
+export function kjua(
+	text: string,
+	inputOptions: KjuaInputOptions & { render: 'canvas' },
+): HTMLCanvasElement;
+
+export function kjua(
+	text: string,
+	inputOptions: KjuaInputOptions & { render: 'image' },
+): HTMLImageElement;
+
+export function kjua(
+	text: string,
 	inputOptions: KjuaInputOptions,
 ): SVGElement | HTMLCanvasElement | HTMLImageElement {
 	const options: KjuaOptions = {
