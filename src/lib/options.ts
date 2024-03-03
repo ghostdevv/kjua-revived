@@ -85,19 +85,19 @@ export interface KjuaOptions {
 	mode: 'plain' | 'label' | 'image';
 
 	/**
-	 * Label/image size
+	 * Label/image size as a %
 	 * @default 30
 	 */
 	mSize: number;
 
 	/**
-	 * Label/image x position
+	 * Label/image x position as a %
 	 * @default 50
 	 */
 	mPosX: number;
 
 	/**
-	 * Label/image y position
+	 * Label/image y position as a %
 	 * @default 50
 	 */
 	mPosY: number;
