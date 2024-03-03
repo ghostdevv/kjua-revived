@@ -78,6 +78,7 @@ export const defaultOptions: KjuaOptions = {
 	back: '#fff',
 
 	// content
+	// todo don't default this
 	text: 'https://github.com/ghostdevv/kjua',
 
 	// roundend corners in pc: 0..100
