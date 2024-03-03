@@ -50,4 +50,8 @@ export function kjua(
 	return create_canvas_qrcode(qr, options, options.render === 'image');
 }
 
-export type { KjuaOptions, ErrorCorrectionLevel } from './lib/options';
+export type {
+	KjuaOptions,
+	KjuaInputOptions,
+	ErrorCorrectionLevel,
+} from './lib/options';
