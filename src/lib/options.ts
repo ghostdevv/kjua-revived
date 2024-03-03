@@ -1,96 +1,155 @@
-// todo doc comments
-
+/**
+ * Options passed into the main kjua function. Everything is optional here.
+ */
 export type KjuaInputOptions = Omit<Partial<KjuaOptions>, 'image'> & {
+	/**
+	 * The image to display on the qr code when `mode` is set to `image`.
+	 * When a string is passed it supports anything that can be handled by an `<img>` element
+	 */
 	image?: string | HTMLImageElement;
 };
 
+/**
+ * Level of error correction on the QR Code
+ */
 export type ErrorCorrectionLevel = 'L' | 'M' | 'Q' | 'H';
 
+/**
+ * Main kjua options after defaults have been applied, most fields are required here.
+ */
 export interface KjuaOptions {
-	// render method: 'canvas', 'image' or 'svg'
+	/**
+	 * The method used to render the QR Code
+	 * @default 'image''
+	 */
 	render: 'canvas' | 'image' | 'svg';
 
-	// render pixel-perfect lines
+	/**
+	 * Whether the lines should be rendered pixel perfect
+	 * @default true
+	 */
 	crisp: boolean;
 
-	// minimum version: 1..40
+	/**
+	 * The minimum qr code version the kjua should use
+	 * @default 1
+	 */
 	minVersion: number;
 
-	// error correction level: 'L', 'M', 'Q' or 'H'
+	/**
+	 * Level of error correction on the QR Code
+	 * @default 'L'
+	 */
 	ecLevel: ErrorCorrectionLevel;
 
-	// size in pixel
+	/**
+	 * Size of the svg/canvas/image in pixels
+	 * @default 200
+	 */
 	size: number;
 
-	// pixel-ratio, null for devicePixelRatio
+	/**
+	 * Pixel ratio, defaults to the device pixel ration
+	 * @default window.devicePixelRatio
+	 */
 	ratio?: number;
 
-	// code color
+	/**
+	 * The colour of the qr code
+	 * @default '#333333'
+	 */
 	fill: string;
 
-	// background color
+	/**
+	 * The background colour of the qr code
+	 * @default '#ffffff'
+	 */
 	back: string;
 
-	// roundend corners in pc: 0..100
+	/**
+	 * How round the pixels should be
+	 * @default 0
+	 */
 	rounded: number;
 
-	// quiet zone in modules
+	/**
+	 * The margin/space around the qrcode
+	 * @default 0
+	 */
 	quiet: number;
 
-	// modes: 'plain', 'label' or 'image'
+	/**
+	 * What decoration should be rendered in the center of the qr code
+	 * @default 'plain'
+	 */
 	mode: 'plain' | 'label' | 'image';
 
-	// label/image size and pos in pc: 0..100
+	/**
+	 * Label/image size
+	 * @default 30
+	 */
 	mSize: number;
+
+	/**
+	 * Label/image x position
+	 * @default 50
+	 */
 	mPosX: number;
+
+	/**
+	 * Label/image y position
+	 * @default 50
+	 */
 	mPosY: number;
 
-	// label
+	/**
+	 * The label to display on the qr code when `mode` is set to `label`
+	 */
 	label?: string;
+
+	/**
+	 * The font for the label
+	 * @default 'sans'
+	 */
 	fontname: string;
+
+	/**
+	 * The colour of the font for the label
+	 * @default '#333333'
+	 */
 	fontcolor: string;
 
-	// image element
+	/**
+	 * The image to display on the qr code when `mode` is set to `image`
+	 */
 	image?: HTMLImageElement;
 }
 
 export const defaultOptions: KjuaOptions = {
-	// render method: 'canvas', 'image' or 'svg'
 	render: 'image',
 
-	// render pixel-perfect lines
 	crisp: true,
 
-	// minimum version: 1..40
 	minVersion: 1,
 
-	// error correction level: 'L', 'M', 'Q' or 'H'
 	ecLevel: 'L',
 
-	// size in pixel
 	size: 200,
 
-	// code color
 	fill: '#333',
 
-	// background color
 	back: '#fff',
 
-	// roundend corners in pc: 0..100
 	rounded: 0,
 
-	// quiet zone in modules
 	quiet: 0,
 
-	// modes: 'plain', 'label' or 'image'
 	mode: 'plain',
 
-	// label/image size and pos in pc: 0..100
 	mSize: 30,
 	mPosX: 50,
 	mPosY: 50,
 
-	// label
 	fontname: 'sans',
 	fontcolor: '#333',
 };
