@@ -77,7 +77,7 @@ const create_canvas_qrcode = (
 	settings: KjuaOptions,
 	as_image: boolean,
 ) => {
-	const ratio = settings.ratio || dom.dpr;
+	const ratio = settings.ratio || dom.getDPR();
 	const canvas = dom.create_canvas(settings.size, ratio);
 	const context = canvas.getContext('2d')!;
 

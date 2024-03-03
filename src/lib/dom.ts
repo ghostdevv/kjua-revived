@@ -1,8 +1,9 @@
-const win = window; // eslint-disable-line no-undef
-const doc = win.document;
-export const dpr = win.devicePixelRatio || 1;
-
 export const SVG_NS = 'http://www.w3.org/2000/svg';
+
+export function getDPR() {
+	// todo is there a case where this will be falsy?
+	return window.devicePixelRatio || 1;
+}
 
 export const get_attr = (el: HTMLElement | SVGElement, key: string) =>
 	el.getAttribute(key);
@@ -21,12 +22,12 @@ export const set_attrs = <T extends HTMLElement | SVGElement>(
 export const create_el = <T extends keyof HTMLElementTagNameMap>(
 	name: T,
 	obj: Record<string, any>,
-) => set_attrs(doc.createElement<T>(name), obj);
+) => set_attrs(document.createElement<T>(name), obj);
 
 export const create_svg_el = (
 	name: string,
 	obj: Record<string, any>,
-): SVGElement => set_attrs(doc.createElementNS(SVG_NS, name), obj);
+): SVGElement => set_attrs(document.createElementNS(SVG_NS, name), obj);
 
 export const create_canvas = (size: number, ratio: number) => {
 	const canvas = create_el('canvas', {

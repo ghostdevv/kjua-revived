@@ -1,4 +1,4 @@
-import { SVG_NS, get_attr, create_svg_el, dpr, create_canvas } from './dom';
+import { SVG_NS, get_attr, create_svg_el, getDPR, create_canvas } from './dom';
 import type { KjuaOptions } from './options';
 import type { QRCode } from './qrcode';
 
@@ -193,7 +193,7 @@ const add_label = (el: SVGElement, options: KjuaOptions) => {
 	const font =
 		'bold ' + options.mSize * 0.01 * size + 'px ' + options.fontname;
 
-	const ratio = options.ratio || dpr;
+	const ratio = options.ratio || getDPR();
 	const ctx = create_canvas(size, ratio).getContext('2d')!;
 	ctx.strokeStyle = options.back;
 	ctx.lineWidth = options.mSize * 0.01 * size * 0.1;
