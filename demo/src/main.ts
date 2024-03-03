@@ -71,7 +71,6 @@ function update_qrcode() {
 		fill: val_by_id('fill'),
 		back: val_by_id('back'),
 
-		text: val_by_id('text'),
 		size: int_by_id('size'),
 		rounded: int_by_id('rounded'),
 		quiet: int_by_id('quiet'),
@@ -86,11 +85,11 @@ function update_qrcode() {
 		fontname: val_by_id('font'),
 		fontcolor: val_by_id('fontcolor'),
 
-		image: el_by_id('img-buffer'),
+		image: val_by_id('image'),
 	};
 
 	var container = el_by_id('container');
-	var qrcode = kjua(options);
+	var qrcode = kjua(val_by_id('text'), options);
 	for_each(container.childNodes, function (child) {
 		container.removeChild(child);
 	});
