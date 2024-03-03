@@ -19,9 +19,7 @@ import { kjua } from 'kjua-revived';
 
 const container = document.createElement('div');
 
-const qr = kjua({
-	text: 'https://willow.sh',
-});
+const qr = kjua('https://willow.sh');
 
 container.appendChild(qr);
 document.body.appendChild(container);
@@ -39,9 +37,7 @@ To use in a regular browser environment you can use a module script:
 
 	const container = document.createElement('div');
 
-	const qr = kjua({
-		text: 'https://willow.sh',
-	});
+	const qr = kjua('https://willow.sh');
 
 	container.appendChild(qr);
 	document.body.appendChild(container);
