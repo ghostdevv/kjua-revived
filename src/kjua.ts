@@ -32,7 +32,11 @@ export function kjua(
 		...inputOptions,
 		image:
 			typeof inputOptions.image == 'string'
-				? create_el('img', { src: inputOptions.image })
+				? create_el('img', {
+						src: inputOptions.image,
+						// todo this won't apply to use provided images so should refactor
+						crossorigin: 'anonymous',
+				  })
 				: inputOptions.image,
 	};
 
