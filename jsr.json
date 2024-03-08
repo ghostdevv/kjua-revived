@@ -1,4 +1,5 @@
 {
+    "$schema": "https://jsr.io/schema/config-file.v1.json",
     "name": "@ghost/kjua-revived",
     "version": "0.2.0",
     "exports": {
@@ -11,6 +12,9 @@
         "LICENSE"
     ],
     "exclude": [
-        "**"
+        "pnpm-lock.yaml",
+        "pnpm-workspace.yaml",
+        "tsup.config.ts",
+        "demo"
     ]
 }
