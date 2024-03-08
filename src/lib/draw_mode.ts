@@ -23,6 +23,9 @@ const draw_label = (ctx: CanvasRenderingContext2D, settings: KjuaOptions) => {
 };
 
 const draw_image = (ctx: CanvasRenderingContext2D, settings: KjuaOptions) => {
+	// todo better error handle
+	if (!settings.image) return;
+
 	const size = settings.size;
 	const w = settings.image!.naturalWidth || 1;
 	const h = settings.image!.naturalHeight || 1;
@@ -35,7 +38,14 @@ const draw_image = (ctx: CanvasRenderingContext2D, settings: KjuaOptions) => {
 	const iw = sw * size;
 	const ih = sh * size;
 
-	ctx.drawImage(settings.image!, x, y, iw, ih);
+	// make sure image has loaded before drawing
+	if (settings.image.complete) {
+		ctx.drawImage(settings.image!, x, y, iw, ih);
+	} else {
+		settings.image.onload = () => {
+			ctx.drawImage(settings.image!, x, y, iw, ih);
+		};
+	}
 };
 
 const draw_mode = (ctx: CanvasRenderingContext2D, settings: KjuaOptions) => {
